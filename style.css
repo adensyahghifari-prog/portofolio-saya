@@ -84,3 +84,30 @@ footer {
 footer a {
   color: #38bdf8;
 }
+/* Wadah pembungkus kotak */
+.project-container {
+  display: flex;
+  flex-wrap: wrap;       /* Supaya jika penuh, kotak ke bawah secara rapi */
+  justify-content: center; /* Posisi berada di tengah layar */
+  gap: 20px;             /* Memberikan jarak antar kotak agar tidak mepet */
+  max-width: 1000px;     /* Batas lebar maksimal wadah */
+  margin: 0 auto;        /* Supaya posisinya di tengah halaman */
+  padding: 20px;
+}
+
+/* Pengaturan masing-masing kotak */
+.card {
+  background: rgba(15, 23, 42, 0.85); /* Warna latar belakang kotak */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;          /* Lebar pas untuk tiap kotak */
+  box-sizing: border-box;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* Efek sedikit terangkat saat kursor mendekat (opsional) */
+.card:hover {
+  transform: translateY(-5px);
+}
