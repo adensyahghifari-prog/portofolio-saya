@@ -3,87 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Saya - Developer HTML & CSS</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Verifikasi - Website Portofolio</title>
+  <!-- Google reCAPTCHA API -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f172a;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-box {
+      background: #1e293b;
+      padding: 2.5rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 380px;
+    }
+    .login-box h2 {
+      margin-bottom: 0.5rem;
+    }
+    .login-box p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .recaptcha-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .btn-masuk {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-masuk:hover {
+      background: #1d4ed8;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header / Profil -->
-  <header>
-    <h1>Halo, Saya Web Developer, baru berkarya di dunia IT!</h1>
-    <p>Selamat datang di portofolio saya. Ini adalah tempat saya memajang hasil karya web HTML, CSS, & JS yang telah saya buat.</p>
-  </header>
+  <div class="login-box">
+    <h2>Akses Terbatas</h2>
+    <p>Selesaikan verifikasi di bawah untuk masuk ke website.</p>
+    
+    <!-- Widget Centang "Saya bukan robot" -->
+    <div class="recaptcha-container">
+      <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+    </div>
 
- <!-- Bagian Karya / Projects -->
-  <section class="projects-section">
-    <h2>pembuatan website sederhana</h2>
+    <!-- Tombol Masuk -->
+    <button class="btn-masuk" onclick="cekVerifikasi()">Masuk ke Website</button>
+  </div>
 
-    <!-- Wadah pembungkus utama dibuka di sini -->
-    <div class="projects-grid">
-      
-      <!-- Kartu 1  -->
-      <div class="project-card">
-        <h3>Web Profil Sederhana</h3>
-        <p>Ini adalah profil singkat saya.</p>
-        <a href="https://webprofilsingkat.vercel.app" target="_blank" rel="noopener noreferrer" class="btn">Lihat Profil</a>
-      </div>
+  <script>
+    function cekVerifikasi() {
+      var response = grecaptcha.getResponse();
 
-      <!-- Kartu 2  -->
-      <div class="project-card">
-        <h3>from pemesanan</h3>
-        <p>Pilihan Project, pembayaran project, deskripsi project yang diinginkan.</p>
-        <a href="https://kalkulatorai.vercel.app" rel="noopener noreferrer" class="btn">Klik Disini</a>
-      </div>
-
-      <!-- Kartu 3 -->
-      <div class="project-card">
-        <h3>kata-kata inspirasi</h3>
-        <p>Kata-kata motivasi untuk menginspirasi diri sendiri.</p>
-        <a href="https://generatorquetes-fa3n.vercel.app" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #3b82f6;">inspirasi</a>
-      </div>
-
-      <!-- Kartu 4 (Sekarang sudah masuk ke dalam wadah yang benar) -->
-      <div class="project-card">
-        <h3>Website Pertama saya</h3>
-        <p>Deskripsi singkat ini adalah web pertama saya, untuk memulai ke dunia IT belajar menggunakan HTML, CSS dan JavaScript.</p>
-        <a href="https://webperpustakaan-beta.vercel.app" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #3b82f6;">buka website saya</a>
-      </div>
-
-      <!-- Kartu 5 (Sekarang sudah masuk ke dalam wadah yang benar) -->
-      <div class="project-card">
-        <h3>project pertama</h3>
-        <p> ini adalah project website saya, untuk memulai ke dunia IT  menggunakan HTML, CSS dan JavaScript.</p>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #3b82f6;">buka project</a>
-      </div>
-
-      <!-- Kartu 6 (Sekarang sudah masuk ke dalam wadah yang benar) -->
-      <div class="project-card">
-        <h3>Project kedua</h3>
-        <p>ini adalah project website saya, untuk memulai ke dunia IT  menggunakan HTML, CSS dan JavaScript.</p>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #3b82f6;">buka project</a>
-      </div>
-
-      <!-- Kartu 7 (Sekarang sudah masuk ke dalam wadah yang benar) -->
-      <div class="project-card">
-        <h3>Project ketiga</h3>
-        <p>ini adalah project website saya, untuk memulai ke dunia IT  menggunakan HTML, CSS dan JavaScript.</p>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #3b82f6;">buka project</a>
-      </div>
-
-      <!-- Kartu 8 (Sekarang sudah masuk ke dalam wadah yang benar) -->
-      <div class="project-card">
-        <h3>Project keempat</h3>
-        <p>ini adalah project website saya, untuk memulai ke dunia IT  menggunakan HTML, CSS dan JavaScript.</p>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #3b82f6;">buka project</a>
-      </div>
-
-    </div> <!-- Wadah pembungkus utama ditutup di sini (hanya sekali di bawah) -->
-  </section>
-
-  <!-- Footer / Kontak -->
-  <footer>
-    <p>Hubungi Saya: <a href="https://wa.me/6285875120458?text=Halo%20AL,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website" target="_blank" rel="noopener noreferrer">WhatsApp Saya</a></p>
-  </footer>
+      if (response.length === 0) {
+        alert("Mohon centang kotak 'Saya bukan robot' terlebih dahulu!");
+      } else {
+        // Simpan izin dan buka halaman portofolio (home.html)
+        localStorage.setItem("sudahLogin", "true");
+        window.location.href = "home.html";
+      }
+    }
+  </script>
 
 </body>
 </html>
