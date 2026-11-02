@@ -3,11 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Website Portofolio</title>
-  
-  <!-- 1. SCRIPT GOOGLE RECAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+  <title>Buat Akun Baru - Website Portofolio</title>
   <style>
     body {
       margin: 0;
@@ -40,11 +36,6 @@
       color: #fff;
       box-sizing: border-box;
     }
-    .recaptcha-container {
-      margin-bottom: 1rem;
-      display: flex;
-      justify-content: center;
-    }
     .btn-submit {
       background: #2563eb;
       color: white;
@@ -55,6 +46,7 @@
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
+      margin-top: 0.5rem;
     }
     .btn-submit:hover { background: #1d4ed8; }
     .link-text { margin-top: 1rem; font-size: 0.85rem; color: #94a3b8; }
@@ -64,21 +56,16 @@
 <body>
 
   <div class="auth-box">
-    <h2>Selamat Datang</h2>
-    <p>Silakan login untuk mengakses portofolio.</p>
+    <h2>Buat Akun Baru</h2>
+    <p>Silakan isi data untuk pendaftaran.</p>
 
-    <input type="email" id="email" class="input-field" placeholder="Email Anda" required>
-    <input type="password" id="password" class="input-field" placeholder="Password" required>
+    <input type="email" id="regEmail" class="input-field" placeholder="Email Anda" required>
+    <input type="password" id="regPassword" class="input-field" placeholder="Password (Min. 6 Karakter)" required>
     
-    <!-- 2. WIDGET RECAPTCHA -->
-    <div class="recaptcha-container">
-      <div class="g-recaptcha" data-sitekey="MASUKKAN_SITE_KEY_ANDA_DISINI"></div>
-    </div>
-
-    <button class="btn-submit" onclick="loginAkun()">Masuk / Login</button>
+    <button class="btn-submit" onclick="daftarAkun()">Daftar Akun</button>
 
     <div class="link-text">
-      Belum punya akun? <a href="register.html">Daftar di sini</a>
+      Sudah punya akun? <a href="index.html">Login di sini</a>
     </div>
   </div>
 
@@ -99,30 +86,22 @@
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    function loginAkun() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+    function daftarAkun() {
+      const email = document.getElementById("regEmail").value;
+      const password = document.getElementById("regPassword").value;
 
       if (!email || !password) {
         alert("Mohon isi email dan password!");
         return;
       }
 
-      // 3. VALIDASI RECAPTCHA
-      const responseCaptcha = grecaptcha.getResponse();
-      if (responseCaptcha.length === 0) {
-        alert("Mohon selesaikan verifikasi reCAPTCHA terlebih dahulu!");
-        return;
-      }
-
-      auth.signInWithEmailAndPassword(email, password)
+      auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-          localStorage.setItem("sudahLogin", "true");
-          window.location.href = "home.html";
+          alert("Registrasi berhasil! Silakan login.");
+          window.location.href = "index.html";
         })
         .catch((error) => {
-          alert("Gagal Login: " + error.message);
-          grecaptcha.reset();
+          alert("Gagal Mendaftar: " + error.message);
         });
     }
   </script>
